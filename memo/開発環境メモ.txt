@@ -1,0 +1,58 @@
+Windows10 仮想環境構築 備忘録
+
+１．Vagrantインストール
+https://www.vagrantup.com/downloads.html
+2020/6/21時点の最新
+
+vagrant box add bento/centos-7.2  --provider virtualbox
+
+環境作りで参考にしたURL
+https://qiita.com/ozawan/items/160728f7c6b10c73b97e
+
+※vagrantとVirtualBoxのバージョンズレ解決法
+https://qiita.com/ak-ymst/items/bdc37aaf53f857d37fcc
+
+
+remi-php71
+
+
+yum install --enablerepo=remi,remi-php71 php php-devel php-mbstring php-pdo php-gd
+
+
+yum --enablerepo=remi,remi-php71 install httpd
+
+
+
+【PHP】
+PHP Version 7.4.16
+
+【データベース】
+MySQL version 8.0.23
+　Adminアカウント
+　　ユーザーID：root
+　　パスワード：revo3_d(eve-lop_WORK
+
+　ユーザーアカウント
+　　ユーザーID：revoltis_dbacnt
+　　パスワード：N1s!-I9a@Uw03)1v
+　 
+D:/vagrant_work/.vagrant/machines/default/virtualbox/private_key
+
+
+192.168.33.10
+127.0.0.1
+
+
+select * from mysql.user where user='revoltis_dbacnt'?G
+show grants for revoltis_dbacnt@%;
+
+
+grant all privileges on *.* to 'revoltis_dbacnt'@'%';
+GRANT SELECT,UPDATE,INSERT,DELETE ON `DB名`.テーブル TO 'ユーザ名'@'ホスト名';
+
+grant all privileges on DB名.* to 'user'@'localhost';
+
+create user 'revoltis_dbacnt'@'%' identified by 'N1s!-I9a@Uw03)1v';
+
+
+https://thinkit.co.jp/story/2015/03/19/5740
